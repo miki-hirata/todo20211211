@@ -1,7 +1,7 @@
 {
   "name": "todo20211211",
   "version": "0.0.0",
-  "homepage": "https://tangra-sd.github.io/todo20211213",
+  "homepage": "https://tangra-sd.github.io/todo20211211",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
