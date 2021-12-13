@@ -16,5 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["./src"]
+  // "node_modules/vite-plugin-pwa/client.d.ts" を追加
+  "include": ["./src", "node_modules/vite-plugin-pwa/client.d.ts"]
 }

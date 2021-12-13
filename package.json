@@ -1,6 +1,7 @@
 {
   "name": "todo20211211",
   "version": "0.0.0",
+  "homepage": "https://tangra-sd.github.io/todo20211213",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -12,6 +13,7 @@
     "@fontsource/roboto": "^4.5.1",
     "@mui/icons-material": "^5.2.1",
     "@mui/material": "^5.2.3",
+    "localforage": "^1.10.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-qrcode-logo": "^2.5.0"
@@ -21,6 +23,7 @@
     "@types/react-dom": "^17.0.10",
     "@vitejs/plugin-react": "^1.0.7",
     "typescript": "^4.4.4",
-    "vite": "^2.7.0"
+    "vite": "^2.7.0",
+    "vite-plugin-pwa": "^0.11.11"
   }
 }

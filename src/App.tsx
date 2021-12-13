@@ -1,7 +1,7 @@
 //import logo from './logo.svg'
 //import './App.css'
-import { useState } from 'react';
-//Reactからusestateフックをインポート
+import {useState, useEffect} from 'react';
+//Reactからusestateフック, useEffect フックをインポート
 import {FormDialog} from './FormDialog'
 import {TodoItem} from './TodoItem'
 //別ファイルに移した型エイリアスの定義は、importしなくても良いみたい
@@ -17,6 +17,13 @@ import { SideBar } from './SideBar';
 import { QR } from './QR';
 import { AlertDialog } from './AlertDialog';
 import { ActionButton } from './ActionButton';
+
+// localforage をインポート
+import localforage from 'localforage';
+
+//きむそんさんの　ストレージデータにも型安全性担保するライブラリ
+import { isTodos } from './lib/isTodos';
+
 
 // テーマを作成
 const theme = createTheme({
@@ -197,6 +204,24 @@ export const App = () => {
     //これはシャロ―コピー（軽い）
     setTodos(newTodos);
   };
+
+  //useEffectフック　キー名 'todo-20200101' のデータを取得
+  useEffect(() => {
+    localforage//LocalForage でデータを取得
+      .getItem('todo-20211211')//データベースのキー名
+      .then((values) => isTodos(values) && setTodos(values))//values = 保存されている値
+      .catch((err)=> console.error(err));
+  },[]//第二引数の配列が空なので、コンポーネントのマウント時のみ実行
+  );
+
+  //useEffectフック　キー名 'todo-20200101' のデータを取得
+  useEffect(() => {
+    localforage//LocalForage でデータを取得
+      .setItem('todo-20211211', todos)//保存したいデータベースのキー名と、保存したい値
+      .catch((err)=> console.error(err));
+  },[todos]//第二引数の配列todosが変更されたら実行
+  );
+  
 
   return (
     <ThemeProvider theme={theme}>

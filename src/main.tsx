@@ -11,9 +11,15 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
+
+//サービスワーカーを登録するメソッドをインポート
+import { registerSW } from 'virtual:pwa-register';
 ReactDOM.render(
   //<React.StrictMode>
   <App />,
   //</React.StrictMode>,
   document.getElementById('root')
 )
+
+// サービスワーカーの登録
+registerSW();
